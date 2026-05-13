@@ -106,23 +106,7 @@ export default function LoginPage() {
             </p>
           </div>
 
-          {/* Onglets */}
-          <div className="tabs">
-            <button 
-              className={`tab ${view === 'login' ? 'active' : ''}`}
-              onClick={() => { setView('login'); setError(''); setSuccess(''); }}
-            >
-              Connexion
-            </button>
-            <button 
-              className={`tab ${view === 'forgot' ? 'active' : ''}`}
-              onClick={() => { setView('forgot'); setError(''); setSuccess(''); }}
-            >
-              Mot de passe oublié
-            </button>
-          </div>
-
-          <form onSubmit={handleSubmit} className="login-form" noValidate>
+          <form onSubmit={handleSubmit} className="login-form" noValidate style={{ marginTop: '1rem' }}>
             {/* Email */}
             <div className="field-group">
               <label htmlFor="email">IDENTIFIANT (EMAIL)</label>
@@ -137,7 +121,7 @@ export default function LoginPage() {
               />
             </div>
 
-            {view === 'login' && (
+            {view === 'login' ? (
               <>
                 {/* Mot de passe */}
                 <div className="field-group">
@@ -166,29 +150,22 @@ export default function LoginPage() {
                   <button 
                     type="button" 
                     className="forgot-btn"
-                    onClick={() => setView('forgot')}
+                    onClick={() => { setView('forgot'); setError(''); setSuccess(''); }}
                   >
                     Oublié ?
                   </button>
                 </div>
-
-                {/* Rôle */}
-                <div className="field-group">
-                  <label>RÔLE</label>
-                  <div className="role-pills">
-                    {ROLES.map((r) => (
-                      <button
-                        key={r}
-                        type="button"
-                        className={`role-pill ${role === r ? 'active' : ''}`}
-                        onClick={() => setRole(r)}
-                      >
-                        {r}
-                      </button>
-                    ))}
-                  </div>
-                </div>
               </>
+            ) : (
+              <div style={{ textAlign: 'center' }}>
+                <button 
+                  type="button" 
+                  className="forgot-btn"
+                  onClick={() => { setView('login'); setError(''); setSuccess(''); }}
+                >
+                  ← Retour à la connexion
+                </button>
+              </div>
             )}
 
             {/* Erreur / Succès */}
