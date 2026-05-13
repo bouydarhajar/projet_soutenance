@@ -1,0 +1,103 @@
+/* src/pages/Dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --amber: #C85C1A;
+  --dark: #1A1208;
+  --cream: #FBF6EF;
+  --border: #E8DDD2;
+  --muted: #7A6552;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); }
+
+.dashboard-root { min-height: 100vh; display: flex; flex-direction: column; }
+
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: var(--dark);
+  color: #fff;
+}
+
+.dash-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--amber); }
+.accent { color: var(--amber); }
+
+.dash-user { display: flex; align-items: center; gap: 1.5rem; }
+.user-info { display: flex; flex-direction: column; align-items: flex-end; }
+.user-name { font-weight: 600; font-size: 0.95rem; }
+.user-role { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+
+.btn-logout {
+  padding: 0.45rem 1.1rem;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-logout:hover { background: rgba(255,255,255,0.1); border-color: var(--amber); }
+
+.dash-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.welcome-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 540px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+
+.welcome-icon { font-size: 3rem; margin-bottom: 1rem; }
+.welcome-card h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark); margin-bottom: 0.75rem; }
+.welcome-card > p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; margin-bottom: 2rem; }
+
+.user-card {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  text-align: left;
+}
+
+.user-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+}
+.user-detail span { color: var(--muted); }
+.user-detail strong { color: var(--dark); font-weight: 600; }
+
+.role-badge {
+  background: var(--amber);
+  color: #fff !important;
+  padding: 0.2rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.78rem !important;
+}

@@ -1,0 +1,405 @@
+/* src/pages/LoginPage.css */
+/* IntarNet Stock — Design raffiné, tons chauds, ambiance restaurant gastronomique */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --amber:    #C85C1A;
+  --amber-lt: #E07840;
+  --dark:     #1A1208;
+  --dark-2:   #2C1F0E;
+  --cream:    #FBF6EF;
+  --muted:    #7A6552;
+  --border:   #E8DDD2;
+  --error:    #C0392B;
+  --radius:   10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+}
+
+/* ── Layout racine ── */
+.login-root {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════
+   PANNEAU GAUCHE — HERO
+═══════════════════════════════════════════ */
+.login-hero {
+  position: relative;
+  flex: 1 1 55%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  /* Image de fond restaurant */
+  background:
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80')
+    center / cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26,18,8,0.82) 0%,
+    rgba(44,31,14,0.65) 60%,
+    rgba(200,92,26,0.25) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 3.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #fff;
+}
+
+/* Brand */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+.brand-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--amber-lt);
+  flex-shrink: 0;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(200,92,26,0.30);
+  border: 1px solid rgba(200,92,26,0.55);
+  backdrop-filter: blur(6px);
+  color: #F5C9A0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+/* Titre hero */
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+  max-width: 420px;
+}
+
+/* Features */
+.hero-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.hero-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.82);
+}
+.feat-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--amber-lt);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   PANNEAU DROIT — FORMULAIRE
+═══════════════════════════════════════════ */
+.login-panel {
+  flex: 0 0 42%;
+  min-width: 380px;
+  max-width: 520px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem 3rem;
+  overflow-y: auto;
+}
+
+.back-link {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--amber); }
+
+/* Card */
+.login-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.card-header { text-align: left; }
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.card-title .accent { color: var(--amber); }
+
+.card-sub {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Onglets */
+.tabs {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tab {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+.tab.active {
+  background: #fff;
+  color: var(--dark);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.tab.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Formulaire */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.field-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.field-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field-group input::placeholder { color: #BBA898; }
+.field-group input:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(200,92,26,0.12);
+}
+
+/* Rôle */
+.role-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.role-pill {
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.role-pill:hover {
+  border-color: var(--amber-lt);
+  color: var(--amber);
+}
+.role-pill.active {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Erreur */
+.error-banner {
+  background: #FEF0EF;
+  border: 1px solid #F5BDB8;
+  color: var(--error);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* Bouton principal */
+.btn-connect {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--amber);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+}
+.btn-connect:hover:not(:disabled) {
+  background: #B04E12;
+  box-shadow: 0 4px 18px rgba(200,92,26,0.35);
+  transform: translateY(-1px);
+}
+.btn-connect:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* Spinner */
+.spinner {
+  width: 22px; height: 22px;
+  border: 2.5px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.demo-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.demo-hint strong { color: var(--dark); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .login-hero { display: none; }
+  .login-panel {
+    flex: 1;
+    max-width: 100%;
+    min-width: unset;
+  }
+}
+
+/* ── Nouvelles options de connexion ── */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -0.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.remember-me input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--amber);
+  cursor: pointer;
+}
+
+.forgot-btn {
+  background: none;
+  border: none;
+  color: var(--amber);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.forgot-btn:hover {
+  text-decoration: underline;
+}
+
+.success-banner {
+  background: #EAF9F1;
+  border: 1px solid #B7E9CC;
+  color: #1F8B4D;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
