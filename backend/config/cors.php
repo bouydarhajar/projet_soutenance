@@ -16,9 +16,9 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'http://localhost:3000',   // CRA port par défaut
-        'http://localhost:3001',   // CRA port alternatif
-        'http://localhost:5173',   // Vite
+        'http://localhost:3000',
+        'http://localhost:3001',
+        'http://localhost:5173',
         'http://127.0.0.1:3000',
         'http://127.0.0.1:3001',
         'http://127.0.0.1:5173',
@@ -32,6 +32,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];

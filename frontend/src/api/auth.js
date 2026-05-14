@@ -4,7 +4,7 @@
 const API_BASE_URL =
   (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) ||
   (typeof process !== 'undefined' && process.env?.REACT_APP_API_URL) ||
-  'http://localhost:8000/api';
+  'http://127.0.0.1:8000/api';
 
 /**
  * Effectue la connexion d'un utilisateur
