@@ -13,8 +13,8 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('marches');
 
   return (
-    <div className="dashboard-root">
-      <header className="dash-header">
+    <div className="dashboard-root layout-sidebar">
+      <aside className="dash-sidebar">
         <div className="dash-brand">
           <span className="brand-dot" />
           IntarNet <span className="accent">Stock</span>
@@ -50,7 +50,7 @@ export default function Dashboard() {
             Déconnexion
           </button>
         </div>
-      </header>
+      </aside>
 
       <main className="dash-main">
         {activeTab === 'marches' && <Marches />}
