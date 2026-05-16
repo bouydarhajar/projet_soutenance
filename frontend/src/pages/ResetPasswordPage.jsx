@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import './LoginPage.css'; // On réutilise les styles
 
-export default function ResetPasswordPage({ onBack }) {
+export default function ResetPasswordPage({ onBack, hideBackLink }) {
   const { resetPassword } = useAuth();
   
   const query = new URLSearchParams(window.location.search);
@@ -37,6 +37,11 @@ export default function ResetPasswordPage({ onBack }) {
   return (
     <div className="login-root">
       <div className="login-panel" style={{ margin: 'auto', flex: 'none', width: '450px' }}>
+        {!hideBackLink && (
+          <button onClick={onBack} className="back-link" style={{ background: 'none', border: 'none', padding: 0 }}>
+            ← Retour
+          </button>
+        )}
         <div className="login-card">
           <div className="card-header">
             <h2 className="card-title">Nouveau <span className="accent">Mot de passe</span></h2>
@@ -71,9 +76,11 @@ export default function ResetPasswordPage({ onBack }) {
             <button type="submit" className="btn-connect" disabled={loading}>
               {loading ? 'Réinitialisation...' : 'Changer le mot de passe'}
             </button>
-            <button type="button" className="forgot-btn" onClick={onBack} style={{ marginTop: '1rem' }}>
-              Retour à la connexion
-            </button>
+            {!hideBackLink && (
+              <button type="button" className="forgot-btn" onClick={onBack} style={{ marginTop: '1rem' }}>
+                Retour à la connexion
+              </button>
+            )}
           </form>
         </div>
       </div>

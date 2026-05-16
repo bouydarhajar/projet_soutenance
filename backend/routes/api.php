@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->prefix('auth')->group(function () {
     Route::get('/me',               [AuthController::class, 'me']);
     Route::put('/update-profile',   [AuthController::class, 'updateProfile']);
     Route::put('/update-password',  [AuthController::class, 'updatePassword']);
+    Route::apiResource('marches', \App\Http\Controllers\MarcheController::class);
 });

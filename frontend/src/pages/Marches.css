@@ -1,0 +1,144 @@
+.marches-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.marches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.marches-header h2 {
+  color: var(--dark);
+  font-family: 'Playfair Display', serif;
+}
+
+.btn-add {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background: #0369a1; /* darker blue */
+}
+
+.add-marche-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.add-marche-form input,
+.add-marche-form textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.add-marche-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.btn-save {
+  background: #10b981; /* emerald green */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.btn-save:hover {
+  background: #059669;
+}
+
+.marches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.marche-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.marche-card h3 {
+  color: var(--dark);
+  margin: 0;
+}
+
+.marche-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.badge-status {
+  background: #e0f2fe;
+  color: var(--primary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.marche-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-view {
+  background: #f1f5f9;
+  color: var(--muted);
+}
+.btn-view:hover { background: #e2e8f0; }
+
+.btn-open {
+  background: var(--primary);
+  color: white;
+}
+.btn-open:hover { background: #0369a1; }
+
+.no-data {
+  text-align: center;
+  color: var(--muted);
+  padding: 3rem;
+}
