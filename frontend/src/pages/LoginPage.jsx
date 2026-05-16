@@ -94,7 +94,6 @@ export default function LoginPage() {
 
       {/* ── Panneau droit (formulaire) ── */}
       <div className="login-panel">
-        <a href="/" className="back-link">← Retour à l'accueil</a>
 
         <div className="login-card">
           <div className="card-header">
@@ -113,7 +112,7 @@ export default function LoginPage() {
               <input
                 id="email"
                 type="email"
-                placeholder="ex: admin@intarnet.ma"
+                placeholder="ex: admin@internat.ma"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-  --amber: #C85C1A;
-  --dark: #1A1208;
-  --cream: #FBF6EF;
-  --border: #E8DDD2;
-  --muted: #7A6552;
+  --primary: #0284c7;
+  --dark: #0f172a;
+  --cream: #ffffff;
+  --border: #e2e8f0;
+  --muted: #64748b;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,8 +31,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); }
   align-items: center;
   gap: 0.5rem;
 }
-.brand-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--amber); }
-.accent { color: var(--amber); }
+.brand-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--primary); }
+.accent { color: var(--primary); }
 
 .dash-user { display: flex; align-items: center; gap: 1.5rem; }
 .user-info { display: flex; flex-direction: column; align-items: flex-end; }
@@ -50,7 +50,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); }
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
 }
-.btn-logout:hover { background: rgba(255,255,255,0.1); border-color: var(--amber); }
+.btn-logout:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); }
 
 .dash-main {
   flex: 1;
@@ -95,7 +95,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); }
 .user-detail strong { color: var(--dark); font-weight: 600; }
 
 .role-badge {
-  background: var(--amber);
+  background: #10b981;
   color: #fff !important;
   padding: 0.2rem 0.75rem;
   border-radius: 50px;

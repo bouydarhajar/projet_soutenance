@@ -4,9 +4,7 @@ import './Dashboard.css';
 
 const ROLE_LABELS = {
   admin:      'Administrateur',
-  intendant:  'Intendant',
-  comptable:  'Comptable',
-  directeur:  'Directeur',
+
 };
 
 export default function Dashboard() {

@@ -1,14 +1,11 @@
 // src/App.jsx
-import { useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import HomePage  from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 
 function AppRoutes() {
   const { user, loading } = useAuth();
-  const [page, setPage] = useState('home');
 
   // Si on a un token dans l'URL, on affiche la page de réinitialisation
   const isReset = window.location.search.includes('token=');
@@ -37,12 +34,7 @@ function AppRoutes() {
     return <ResetPasswordPage onBack={() => window.location.href = '/'} />;
   }
 
-  // Navigation manuelle entre les pages publiques
-  if (page === 'login') {
-    return <LoginPage onBack={() => setPage('home')} />;
-  }
-
-  return <HomePage onNavigateToLogin={() => setPage('login')} />;
+  return <LoginPage />;
 }
 
 export default function App() {

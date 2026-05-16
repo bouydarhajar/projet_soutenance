@@ -73,6 +73,25 @@ class AuthController extends Controller
     }
 
     /**
+     * Obtenir l'utilisateur connecté
+     */
+    public function me(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        return response()->json([
+            'success' => true,
+            'user'    => [
+                'id'                  => $user->id,
+                'nom'                 => $user->nom,
+                'prenom'              => $user->prenom,
+                'email'               => $user->email,
+                'role'                => $user->role,
+                'derniere_connexion'  => $user->derniere_connexion?->format('d/m/Y H:i'),
+            ],
+        ]);
+    }
+
+    /**
      * Mettre à jour le profil
      */
     public function updateProfile(Request $request): JsonResponse
